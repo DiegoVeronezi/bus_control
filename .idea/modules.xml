@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/br.com.diegoveronezi.buscontrol.iml" filepath="$PROJECT_DIR$/.idea/modules/br.com.diegoveronezi.buscontrol.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/br.com.diegoveronezi.buscontrol_main.iml" filepath="$PROJECT_DIR$/.idea/modules/br.com.diegoveronezi.buscontrol_main.iml" group="br.com.diegoveronezi.buscontrol" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/br.com.diegoveronezi.buscontrol_test.iml" filepath="$PROJECT_DIR$/.idea/modules/br.com.diegoveronezi.buscontrol_test.iml" group="br.com.diegoveronezi.buscontrol" />
+    </modules>
+  </component>
+</project>

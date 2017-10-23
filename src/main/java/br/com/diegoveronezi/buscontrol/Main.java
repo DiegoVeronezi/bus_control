@@ -14,11 +14,12 @@ public class Main {
         /*ConexaoMySQL.getConexaoMySQL();
         System.out.println(ConexaoMySQL.status);*/
 
-        LocalTime now = LocalTime.now();
+        HorarioBus horario = new HorarioBus();
 
-        Time time = Time.valueOf(now);
+        horario.mostrarHorario();
 
-        System.out.println("Horário atual:" + time);
+
+
 
     }
 

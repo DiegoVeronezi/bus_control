@@ -20,28 +20,17 @@ public class Main {
 
         FatimaDAO hFatima = new FatimaDAO();
 
+        Menu menu = new Menu();
+
         //ArrayList <Time> timeDoBus = new ArrayList<>();
 
         //timeDoBus = hFatima.getHorarioFatimaTabela(horario.horarioAtual());
 
-        Scanner s = new Scanner(System.in);
+        menu.mostrarMenu();
+
+        menu.respostaDoHorario(menu.respostaDoUsuario());
 
 
-        System.out.println("******* BUS CONTROL *******");
-        System.out.println("-Qual linha você deseja saber o horário?\n" +
-                "1 - Fátima ");
-        System.out.println("\nDigite o numero da opção:");
-        // terminar de completar aqui
-
-
-
-        horario.mostrarHorarioAtual();
-
-        horario.mostrarPrimeiroHorario();
-
-        System.out.println("Mostrando todos os horarios após o atual");
-
-        horario.mostrarTodosHorarios();
 
 
     }

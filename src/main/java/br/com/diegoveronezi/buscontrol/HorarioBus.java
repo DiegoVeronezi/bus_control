@@ -22,6 +22,8 @@ public class HorarioBus {
     }
 
     public void mostrarHorarioAtual(){
+        now = LocalTime.now();
+        time = Time.valueOf(now);
         System.out.println("Horario Atual:" + time);
 
     }

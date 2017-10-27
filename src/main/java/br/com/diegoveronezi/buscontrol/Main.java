@@ -16,15 +16,8 @@ public class Main {
         /*ConexaoMySQL.getConexaoMySQL();
         System.out.println(ConexaoMySQL.status);*/
 
-        HorarioBus horario = new HorarioBus();
-
-        FatimaDAO hFatima = new FatimaDAO();
-
         Menu menu = new Menu();
 
-        //ArrayList <Time> timeDoBus = new ArrayList<>();
-
-        //timeDoBus = hFatima.getHorarioFatimaTabela(horario.horarioAtual());
 
         menu.mostrarMenu();
 

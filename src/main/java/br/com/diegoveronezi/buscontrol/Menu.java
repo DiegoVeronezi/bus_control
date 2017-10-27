@@ -35,29 +35,39 @@ public int respostaDoUsuario(){
 
 }
 
-public void retorno(){
+public void subMenu() {
 
-    int opcao = 0;
+    int op;
     Scanner s = new Scanner(System.in);
 
-    System.out.println("Você deseja fazer o que?" +
-            "\n1 - Sair\n2 - Voltar ao menu");
-    opcao = (s.nextInt());
+    System.out.println("\nVocê deseja fazer o que?" +
+            "\n1 - Ver todos os horario apos o atual\n2 - Voltar ao menu\n3 - Sair");
+    op = (s.nextInt());
 
-    while (opcao !=1 && opcao !=2){
-        System.out.println("Opção inválida!");
+    while (op != 1 && op != 2 && op != 3) {
+        System.out.println("\nOpção inválida!");
         System.out.println("Você deseja fazer o que?" +
-                "\n1 - Sair\n2 - Voltar ao menu");
-        opcao = (s.nextInt());
+                "\n1 - Ver todos os horario apos o atual\n2 - Voltar ao menu\n3 - Sair");
+        op = (s.nextInt());
     }
 
-    if (opcao==1){
-        System.out.println("Você saiu!");
+    if (op == 1) {
 
-    }else{
+        System.out.println("\nMostrando todos os horários:");
+        horario.mostrarTodosHorarios();
+
+    }
+
+    if (op == 2){
 
         mostrarMenu();
         respostaDoHorario(respostaDoUsuario());
+
+    }
+    if (op == 3){
+
+        System.out.println("Você saiu!");
+
     }
 
 }
@@ -65,32 +75,13 @@ public void retorno(){
 
 public void respostaDoHorario(int opcaoHorario){
 
-    String resp = null;
-    Scanner s = new Scanner(System.in);
-
     switch(opcaoHorario)
     {
         case 1:
+            System.out.println("\nO próximo horário do bus é às:");
             horario.mostrarPrimeiroHorario();
-            System.out.println("Deseja ver todos os horario apos o atual? [S/N]");
-            resp = (s.next());
 
-            while (!(resp.equalsIgnoreCase("S") || resp.equalsIgnoreCase("N"))){
-                System.out.println("Resposta Inválida!");
-                System.out.println("Deseja ver todos os horario apos o atual? [S/N]");
-                resp = (s.next());
-            }
-
-            if (resp.equalsIgnoreCase("S")){
-
-                horario.mostrarTodosHorarios();
-                retorno();
-
-            }else{
-
-              retorno();
-
-            }
+            subMenu();
 
             break;
 

@@ -14,8 +14,6 @@ public class HorarioBus {
 
     FatimaDAO hFatima = new FatimaDAO();
 
-    //ArrayList<Time> timeDoBus = new ArrayList<>(); -> entender se esse objeto esta sendo usada ainda
-
 
     public Time horarioAtual(){
         return time;

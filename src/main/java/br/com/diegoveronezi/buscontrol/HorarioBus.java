@@ -1,10 +1,7 @@
 package br.com.diegoveronezi.buscontrol;
 
-import sun.util.resources.cldr.es.TimeZoneNames_es_419;
-
 import java.sql.Time;
 import java.time.LocalTime;
-import java.util.ArrayList;
 
 public class HorarioBus {
 
@@ -12,10 +9,11 @@ public class HorarioBus {
 
     Time time = Time.valueOf(now);
 
-    FatimaDAO hFatima = new FatimaDAO();
+    OnibusDAO onibusDAO = new OnibusDAO();
 
 
     public Time horarioAtual(){
+
         return time;
     }
 
@@ -26,19 +24,22 @@ public class HorarioBus {
 
     }
 
-    public void mostrarPrimeiroHorario(){
+    public void mostrarPrimeiroHorario(int opcaoHorario){
 
-        System.out.println(hFatima.getHorarioFatimaTabela(horarioAtual()).get(0));
+        System.out.println(onibusDAO.getHorarioTabela(horarioAtual(),opcaoHorario).get(0));
     }
 
-    public void mostrarTodosHorarios(){
+    public void mostrarTodosHorarios(int opcaoHorario){
 
-        for (int i = 0; i < hFatima.getHorarioFatimaTabela(horarioAtual()).size(); i++) {
+        for (int i = 0; i < onibusDAO.getHorarioTabela(horarioAtual(),opcaoHorario).size(); i++) {
 
-            System.out.println(hFatima.getHorarioFatimaTabela(horarioAtual()).get(i));
+            System.out.println(onibusDAO.getHorarioTabela(horarioAtual(),opcaoHorario).get(i));
         }
 
     }
+
+
+
 
 
 

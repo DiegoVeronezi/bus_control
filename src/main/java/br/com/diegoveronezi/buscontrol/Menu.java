@@ -1,10 +1,17 @@
 package br.com.diegoveronezi.buscontrol;
 
+import java.sql.Time;
+import java.time.LocalTime;
 import java.util.Scanner;
 
 public class Menu {
 
     HorarioBus horario = new HorarioBus();
+
+    LocalTime now = LocalTime.now();
+
+    Time time = Time.valueOf(now);
+
 
 public void mostrarMenu(){
 
@@ -24,8 +31,8 @@ public int respostaDoUsuario(){
     System.out.println("\nDigite o numero da opção:");
     opcaoHorario = (s.nextInt());
 
-    while (opcaoHorario<1 || opcaoHorario>3){
-        System.out.println("Opção inválida!");
+    while (opcaoHorario<1){
+        System.out.println("Opção inválida!rr");
         System.out.println("\nDigite o numero da opção:");
         opcaoHorario = (s.nextInt());
     }
@@ -35,7 +42,7 @@ public int respostaDoUsuario(){
 
 }
 
-public void subMenu() {
+public void subMenu(int opcaoHorario) {
 
     int op;
     Scanner s = new Scanner(System.in);
@@ -54,7 +61,7 @@ public void subMenu() {
     if (op == 1) {
 
         System.out.println("\nMostrando todos os horários:");
-        horario.mostrarTodosHorarios();
+        horario.mostrarTodosHorarios(opcaoHorario);
 
     }
 
@@ -78,13 +85,19 @@ public void respostaDoHorario(int opcaoHorario){
     switch(opcaoHorario)
     {
         case 1:
-            System.out.println("\nO próximo horário do bus é às:");
-            horario.mostrarPrimeiroHorario();
+            System.out.println("\nO próximo horário da linha Fátima é às:");
+            horario.mostrarPrimeiroHorario(opcaoHorario);
 
-            subMenu();
+            subMenu(opcaoHorario);
 
             break;
+        case 2:
+            System.out.println("\nO próximo horário da linha Florida é às:");
+            horario.mostrarPrimeiroHorario(opcaoHorario);
 
+            subMenu(opcaoHorario);
+
+            break;
         default:
             System.out.println("Opção inválida");
 

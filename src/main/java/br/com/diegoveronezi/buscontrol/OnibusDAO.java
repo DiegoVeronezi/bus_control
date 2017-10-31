@@ -6,10 +6,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FatimaDAO {
+public class OnibusDAO {
 
-
-    public ArrayList<Time> getHorarioFatimaTabela(Time time){
+    public ArrayList<Time> getHorarioTabela(Time time, int resposta){
 
         Connection connection = ConexaoMySQL.getConexaoMySQL();
         PreparedStatement preparedStatement = null;
@@ -18,9 +17,19 @@ public class FatimaDAO {
         ArrayList <Time> horarioRecebido = new ArrayList<>();
 
         try{
-            preparedStatement = connection.prepareStatement("select horario from fatima where horario>?");
+            switch (resposta){
+                case 1:
+                    preparedStatement = connection.prepareStatement("select horario from fatima where horario>?");
+                    break;
+                case 2:
+                    preparedStatement = connection.prepareStatement("select horario from florida where horario>?");
+                    break;
+                case 3:
+
+                    break;
+            }
                 preparedStatement.setTime(1,time);
-            rs = preparedStatement.executeQuery();
+                rs = preparedStatement.executeQuery();
 
             while (rs.next()){
                 horarioRecebido.add(rs.getTime("horario"));

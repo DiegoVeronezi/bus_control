@@ -31,14 +31,13 @@ public int respostaDoUsuario(){
     System.out.println("\nDigite o numero da opção:");
     opcaoHorario = (s.nextInt());
 
-    while (opcaoHorario<1){
-        System.out.println("Opção inválida!rr");
+    while (!(opcaoHorario==1) && !(opcaoHorario==2) && !(opcaoHorario==3)){
+        System.out.println("Opção inválida!");
         System.out.println("\nDigite o numero da opção:");
         opcaoHorario = (s.nextInt());
     }
 
     return opcaoHorario;
-
 
 }
 
@@ -98,8 +97,15 @@ public void respostaDoHorario(int opcaoHorario){
             subMenu(opcaoHorario);
 
             break;
+        case 3:
+            System.out.println("\nO próximo horário da linha Colina é às:");
+            horario.mostrarPrimeiroHorario(opcaoHorario);
+
+            subMenu(opcaoHorario);
+
+            break;
         default:
-            System.out.println("Opção inválida");
+            System.out.println("Opção inválidarr");
 
     }
 

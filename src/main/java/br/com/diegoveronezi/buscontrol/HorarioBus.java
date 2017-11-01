@@ -1,5 +1,6 @@
 package br.com.diegoveronezi.buscontrol;
 
+import java.sql.SQLException;
 import java.sql.Time;
 import java.time.LocalTime;
 
@@ -31,10 +32,19 @@ public class HorarioBus {
 
     public void mostrarTodosHorarios(int opcaoHorario){
 
-        for (int i = 0; i < onibusDAO.getHorarioTabela(horarioAtual(),opcaoHorario).size(); i++) {
+        try {
 
-            System.out.println(onibusDAO.getHorarioTabela(horarioAtual(),opcaoHorario).get(i));
+            for (int i = 0; i < onibusDAO.getHorarioTabela(horarioAtual(),opcaoHorario).size(); i++) {
+
+                System.out.println(onibusDAO.getHorarioTabela(horarioAtual(),opcaoHorario).get(i));
+            }
+
+        }catch (Exception e){
+            System.out.println(e.imprimirMsgErro());
+
         }
+
+
 
     }
 

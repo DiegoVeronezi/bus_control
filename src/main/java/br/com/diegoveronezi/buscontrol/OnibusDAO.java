@@ -8,31 +8,24 @@ import java.util.List;
 
 public class OnibusDAO {
 
-    public ArrayList<Time> getHorarioTabela(Time time, int resposta){
+    public ArrayList<Time> getHorarioTabela(Time time, int resposta) {
 
         Connection connection = ConexaoMySQL.getConexaoMySQL();
         PreparedStatement preparedStatement = null;
         ResultSet rs = null;
 
-        ArrayList <Time> horarioRecebido = new ArrayList<>();
+        ArrayList<Time> horarioRecebido = new ArrayList<>();
 
-        try{
-            switch (resposta){
-                case 1:
-                    preparedStatement = connection.prepareStatement("select horario from fatima where horario>?");
-                    break;
-                case 2:
-                    preparedStatement = connection.prepareStatement("select horario from florida where horario>?");
-                    break;
-                case 3:
+        try {
 
-                    break;
-            }
-                preparedStatement.setTime(1,time);
-                rs = preparedStatement.executeQuery();
+            preparedStatement = connection.prepareStatement("select hora from horario where hora>? and idLinha= ?");
 
-            while (rs.next()){
-                horarioRecebido.add(rs.getTime("horario"));
+            preparedStatement.setTime(1, time);
+            preparedStatement.setInt(2,resposta);
+            rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                horarioRecebido.add(rs.getTime("hora"));
             }
 
             return horarioRecebido;
@@ -40,12 +33,11 @@ public class OnibusDAO {
         } catch (SQLException e) {
             throw new Exception("Não foi possivel encontrar o horário");
 
-        }finally {
+        } finally {
             ConexaoMySQL.FecharConexao();
         }
 
     }
-
 
 
 }

@@ -26,7 +26,15 @@ public class HorarioBus {
 
     public void mostrarPrimeiroHorario(int opcaoHorario) {
 
-        System.out.println("\t-> " + onibusDAO.getHorarioTabela(horarioAtual(), opcaoHorario).get(0) + "h");
+        try {
+
+            System.out.println("\t-> " + onibusDAO.getHorarioTabela(horarioAtual(), opcaoHorario).get(0) + "h");
+
+        } catch (Exception e) {
+            System.out.println(e.imprimirMsgErro());
+
+        }
+
     }
 
     public void mostrarTodosHorarios(int opcaoHorario) {

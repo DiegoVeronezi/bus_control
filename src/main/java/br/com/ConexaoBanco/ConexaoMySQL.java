@@ -27,7 +27,7 @@ public class ConexaoMySQL {
                 Class.forName(driverName);
 
                 String serverName = "localhost";
-                String mydatabase = "OnibusDB";
+                String mydatabase = "onibusdb";
                 String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
                 String username = "root";
                 String password = "admin";

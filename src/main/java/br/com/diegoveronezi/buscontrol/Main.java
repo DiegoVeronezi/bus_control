@@ -8,7 +8,7 @@ public class Main {
 
         menu.mostrarMenu();
 
-        menu.respostaDoHorario(menu.respostaDoUsuario());
+        menu.mostrarHorario(menu.respostaDoUsuarioLinha(menu.respostaDoSentidoLinha()));
 
     }
 

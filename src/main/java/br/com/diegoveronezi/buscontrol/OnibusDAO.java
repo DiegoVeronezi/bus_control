@@ -17,6 +17,7 @@ public class OnibusDAO {
 
         try {
 
+            assert connection != null;
             preparedStatement = connection.prepareStatement("select hora from horario where hora>? and idLinha= ?");
 
             preparedStatement.setTime(1, time);
@@ -30,7 +31,8 @@ public class OnibusDAO {
             return horarioRecebido;
 
         } catch (SQLException e) {
-            throw new Exception("Não foi possivel encontrar o horário");
+            throw new Exception("Não existem mais horários para o dia de hoje, " +
+                    "os próximos horários começam a partir da 00:00h");
 
         } finally {
             ConexaoMySQL.FecharConexao();
